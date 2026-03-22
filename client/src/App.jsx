@@ -1,21 +1,28 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import ConnectionTest from "./components/common/ConnectionTest";
 import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
-    <div>
-      <h1>My App</h1>
+    <Router>
+      <div>
+        <h1>My App</h1>
 
-      <ConnectionTest />
+        {/* Optional: keep this for testing */}
+        <ConnectionTest />
 
-      <hr />
-
-      <Register />
-    </div>
+        <Routes>
+          <Route path="/" element={<Register />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
-
-// PR submission change
-// PR test change
 
 export default App;
